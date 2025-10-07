@@ -1,0 +1,12 @@
+name: keep-streamlit-awake
+on:
+  schedule:
+    - cron: "0 */8 * * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping
+        run: |
+          curl -s -I "https://leannaj-dashboard-spotify-user.streamlit.app" || true
